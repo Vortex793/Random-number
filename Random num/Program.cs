@@ -9,20 +9,21 @@ namespace Random_num
 {
     internal class Program
     {
+        //CURTIS APFELBECK
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Which part of the code would you like to run (choose between 1-4)");
-            Console.WriteLine("1 - Random Numbers");
-            Console.WriteLine("2 - Adder");
-            Console.WriteLine("3 - Distance");
-            Console.WriteLine("4 - Hypotenuse");
+            Console.WriteLine("Which part of the code would you like to run (choose between 1-3)");
+            Console.WriteLine("1 - Random Integers");
+            Console.WriteLine("2 - Dice Roller");
+            Console.WriteLine("3 - Random Decimal Numbers");
+            
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 1) Part1();
             else if (choice == 2) Part2();
             else if (choice == 3) Part3();
-            //else if (choice == 4) Part4();
+          
 
             else Console.WriteLine("Invalid number :(");
 
@@ -34,6 +35,7 @@ namespace Random_num
 
         static void Part1()
         {
+            Console.Clear();
             Random generator = new Random();
 
             int minNum, maxNum;
@@ -77,8 +79,10 @@ namespace Random_num
         {
             Console.Clear();
 
+            Random generator = new Random();
             int minNum, maxNum;
-
+            double randomDecimal1, randomDecimal2, randomDecimal3;
+            
             Console.Write("Enter the minimum number: ");
             minNum = Convert.ToInt32(Console.ReadLine());
 
@@ -90,7 +94,14 @@ namespace Random_num
                 Console.WriteLine("Minimum number cannot be greater than maximum number.");
                 return;
             }
+            
+            randomDecimal1 = generator.NextDouble() * (maxNum - minNum) + minNum;
+            randomDecimal2 = generator.NextDouble() * (maxNum - minNum) + minNum;
+            randomDecimal3 = generator.NextDouble() * (maxNum - minNum) + minNum;
 
+            Console.WriteLine($"Random decimal 1: {randomDecimal1}");
+            Console.WriteLine($"Random decimal 2: {randomDecimal2}");
+            Console.WriteLine($"Random decimal 3: {randomDecimal3}");
         }
     }
 }
